@@ -5,7 +5,7 @@ TF_LIB = `python3 -c "import tensorflow as tf; print(tf.sysconfig.get_lib())"`
 TF_NSYNC = $(TF_INC)/external/nsync/public
 
 ifndef CUDA_HOME
-    CUDA_HOME := /usr/local/cuda-9.0
+    CUDA_HOME := /usr/local/cuda
 endif
 
 CC        = gcc -O2 -pthread
