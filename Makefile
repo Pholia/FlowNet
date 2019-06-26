@@ -11,11 +11,13 @@ endif
 CC        = gcc -O2 -pthread
 CXX       = g++
 GPUCC     = nvcc
-CFLAGS    = -std=c++11 -I$(TF_INC) -I"$(CUDA_HOME)/include" -DGOOGLE_CUDA=1 -L$(TF_LIB) -ltensorflow_framework
+CFLAGS    = -std=c++11 -I$(TF_INC) -I"$(CUDA_HOME)/include" -DGOOGLE_CUDA=1 -L$(TF_LIB)
+# CFLAGS    = -std=c++11 -I$(TF_INC) -I"$(CUDA_HOME)/include" -DGOOGLE_CUDA=1 -L$(TF_LIB) -ltensorflow_framework
 GPUCFLAGS = -c --expt-relaxed-constexpr -L$(TF_LIB) -ltensorflow_framework -DNDEBUG
 LFLAGS    = -pthread -shared -fPIC
 GPULFLAGS = -I$(TF_NSYNC) -I/usr/local -x cu -Xcompiler -fPIC
-CGPUFLAGS = -L$(CUDA_HOME)/lib -L$(CUDA_HOME)/lib64 -lcudart -L$(TF_LIB) -ltensorflow_framework
+CGPUFLAGS = -L$(CUDA_HOME)/lib -L$(CUDA_HOME)/lib64 -lcudart -L$(TF_LIB)
+# CGPUFLAGS = -L$(CUDA_HOME)/lib -L$(CUDA_HOME)/lib64 -lcudart -L$(TF_LIB) -ltensorflow_framework
 
 OUT_DIR   = src/ops/build
 PREPROCESSING_SRC = "src/ops/preprocessing/preprocessing.cc" "src/ops/preprocessing/kernels/flow_augmentation.cc" "src/ops/preprocessing/kernels/augmentation_base.cc" "src/ops/preprocessing/kernels/data_augmentation.cc"
